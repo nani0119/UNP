@@ -1,0 +1,9 @@
+
+// the configured options and settings for Tutorial
+#define UNP_VERSION_MAJOR @UNP_VERSION_MAJOR@
+#define UNP_VERSION_MINOR @UNP_VERSION_MINOR@
+
+/* CPU, vendor, and operating system */
+#define CPU_VENDOR_OS  "@CPU@-@VENDOR@-@OS@"
+
+#cmakedefine BUILD_DEBUG_TYPE
