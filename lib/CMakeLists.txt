@@ -6,9 +6,16 @@ set(MODULE_NAME LIB)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 # ======================================================
+
+set(FILES_LIST 
+        "unp.cc"
+        "error.cc"
+        "sock_ntop.cc"
+)
+
 # 自动包含当前目录代码文件
 # aux_source_directory(. DIR_SRCS)
-set(UNP_COMMON_LIB_FILE "unp.cc")
+set(UNP_COMMON_LIB_FILE ${FILES_LIST})
 
 # 生成动态库
 add_library(unp SHARED ${UNP_COMMON_LIB_FILE})

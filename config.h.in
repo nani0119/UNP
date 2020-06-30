@@ -7,3 +7,16 @@
 #define CPU_VENDOR_OS  "@CPU@-@VENDOR@-@OS@"
 
 #cmakedefine BUILD_DEBUG_TYPE
+
+
+/* Define to 1 if <net/if_dl.h> defines struct sockaddr_dl */
+/* #undef HAVE_SOCKADDR_DL_STRUCT */
+
+/* Define to 1 if the system supports IPv4 */
+#cmakedefine IPV4 1
+
+/* Define to 1 if the system supports IPv6 */
+#cmakedefine IPV6 1
+
+/* Define to 1 if you have the `vsnprintf' function. */
+#cmakedefine HAVE_VSNPRINTF 1

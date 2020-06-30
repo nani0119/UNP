@@ -28,6 +28,17 @@ option(BUILD_DEBUG_TYPE
 	   "build debug type"
 	   on)
 
+option(IPV4
+	   "ipv4"
+	   on)
+
+option(IPV6
+	   "ipv6"
+	   on)
+
+option(HAVE_VSNPRINTF
+	   "vsnprintf"
+	   on)
 # 设置编译选项
 #set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIE -pie")
 #set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -fPIE -pie")
