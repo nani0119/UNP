@@ -70,6 +70,7 @@ include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib")
 #添加子目录
 add_subdirectory(lib)
 add_subdirectory(intro)
+add_subdirectory(tcpcliserv)
 # =============================================================
 
 #指定安装时使用的路径前缀

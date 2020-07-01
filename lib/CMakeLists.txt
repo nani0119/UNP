@@ -11,6 +11,15 @@ set(FILES_LIST
         "unp.cc"
         "error.cc"
         "sock_ntop.cc"
+        "wrapsock.cc"
+        "wrapunix.cc"
+        "wraplib.cc"
+        "wrapstdio.cc"
+        "writen.cc"
+        "str_echo.cc"
+        "str_cli.cc"
+        "readline.cc"
+        "signal.cc"
 )
 
 # 自动包含当前目录代码文件
