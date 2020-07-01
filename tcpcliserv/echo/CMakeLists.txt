@@ -3,13 +3,14 @@ cmake_minimum_required(VERSION 3.10)
 set(MODULE_NAME ECHO)
 
 # 添加动态或者静态链接库路径
+link_directories(${PROJECT_BINARY_DIR}/lib)
 link_directories(${PROJECT_BINARY_DIR}/install/lib)
 
 # 添加头文件路径
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(${PROJECT_BINARY_DIR}/install/include)
 
-set(EXTRA_LIBS "unp.a")
+set(EXTRA_LIBS  ${EXTRA_LIBS}  "libunp.a")
 # ======================================================
 # 自动包含当前目录代码文件
 set(UNP_TCP_ECHO_SERV_FILE "tcpechoserv.cc")
