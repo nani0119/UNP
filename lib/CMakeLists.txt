@@ -20,6 +20,7 @@ set(FILES_LIST
         "str_cli.cc"
         "readline.cc"
         "signal.cc"
+        "sockfd_to_family.cc"
 )
 
 # 自动包含当前目录代码文件

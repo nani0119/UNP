@@ -108,6 +108,8 @@ namespace  unp
     ssize_t Readline(int fd, void *ptr, size_t maxlen);
     //signal.cc
     Sigfunc* Signal(int signo, Sigfunc *func);
+    //sockfd_to_family.cc
+     int sockfd_to_family(int sockfd);
 }
 
 #endif
