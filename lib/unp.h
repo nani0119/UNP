@@ -4,6 +4,7 @@
 
 extern "C" {
 #include <errno.h>
+#include <limits.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,7 +22,7 @@ extern "C" {
 #include <fcntl.h>
 #include <signal.h>
 #include <sys/wait.h>
-
+#include <sys/resource.h>
 }
 #define	FILE_MODE	(S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)
 					/* default file access permissions for new files */
@@ -29,6 +30,10 @@ extern "C" {
 					/* default permissions for new directories */
 
 typedef	void	Sigfunc(int);	/* for signal handlers */
+
+#define	min(a,b)	((a) < (b) ? (a) : (b))
+#define	max(a,b)	((a) > (b) ? (a) : (b))
+
 
 /* Following shortens all the typecasts of pointer arguments: */
 #define	SA	struct sockaddr
@@ -68,6 +73,7 @@ namespace  unp
     int   Poll(struct pollfd *fdarray, unsigned long nfds, int timeout);
     int   Select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);
     int   Socket(int family, int type, int protocol);
+    int   Shutdown(int fd, int how);
     // wrapunix.cc
     int     Close(int fd);
     int     Ioctl(int fd, int request, void *arg);

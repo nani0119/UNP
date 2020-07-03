@@ -123,4 +123,14 @@ again:
         }
         return n; /* can return 0 on timeout */
     }
+
+    int Shutdown(int fd, int how)
+    {
+        int ret;
+        if ((ret = shutdown(fd, how)) < 0)
+        {
+            err_msg("shutdown error");
+        }
+        return ret;
+    }
 }
