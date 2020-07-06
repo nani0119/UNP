@@ -68,12 +68,20 @@ namespace  unp
     int   Connect(int fd, const struct sockaddr *sa, socklen_t salen);
     int   Getpeername(int fd, struct sockaddr *sa, socklen_t *salenptr);
     int   Getsockname(int fd, struct sockaddr *sa, socklen_t *salenptr);
-    int   Getsockopt(int fd, int level, int optname, void *optval, socklen_t *optlenptr);
     int   Listen(int fd, int backlog);
     int   Poll(struct pollfd *fdarray, unsigned long nfds, int timeout);
     int   Select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);
     int   Socket(int family, int type, int protocol);
     int   Shutdown(int fd, int how);
+    int   Setsockopt(int fd, int level, int optname, const void *optval, socklen_t optlen);
+    int   Getsockopt(int fd, int level, int optname, void *optval, socklen_t *optlenptr);
+    ssize_t Recv(int fd, void *ptr, size_t nbytes, int flags);
+    ssize_t Recvfrom(int fd, void *ptr, size_t nbytes, int flags, struct sockaddr *sa, socklen_t *salenptr);
+    ssize_t Recvmsg(int fd, struct msghdr *msg, int flags);
+    ssize_t Send(int fd, const void *ptr, size_t nbytes, int flags);
+    ssize_t Sendto(int fd, const void *ptr, size_t nbytes, int flags, const struct sockaddr *sa, socklen_t salen);
+    ssize_t Sendmsg(int fd, const struct msghdr *msg, int flags);
+
     // wrapunix.cc
     int     Close(int fd);
     int     Ioctl(int fd, int request, void *arg);
@@ -95,6 +103,8 @@ namespace  unp
     pid_t   Wait(int *iptr);
     pid_t   Waitpid(pid_t pid, int *iptr, int options);
     ssize_t Write(int fd, void *ptr, size_t nbytes);
+
+
     //writen.cc
     ssize_t Writen(int fd, void *ptr, size_t nbytes);
     // str_echo.cc
@@ -116,6 +126,10 @@ namespace  unp
     Sigfunc* Signal(int signo, Sigfunc *func);
     //sockfd_to_family.cc
      int sockfd_to_family(int sockfd);
+   //dg_cli.cc
+   void dg_cli(FILE *fp, int sockfd, const SA *pservaddr, socklen_t servlen);
+   //dg_echo.cc
+   void dg_echo(int sockfd, struct sockaddr* pcliaddr, socklen_t clilen);
 }
 
 #endif

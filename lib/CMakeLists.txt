@@ -21,6 +21,8 @@ set(FILES_LIST
         "readline.cc"
         "signal.cc"
         "sockfd_to_family.cc"
+        "dg_cli.cc"
+        "dg_echo.cc"
 )
 
 # 自动包含当前目录代码文件

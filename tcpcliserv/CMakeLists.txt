@@ -11,5 +11,3 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/servpollecho)
 add_subdirectory(echo)
 add_subdirectory(servselectecho)
 add_subdirectory(servpollecho)
-
-
