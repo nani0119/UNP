@@ -73,6 +73,7 @@ add_subdirectory(intro)
 add_subdirectory(tcpcliserv)
 add_subdirectory(sockopt)
 add_subdirectory(udpcliserv)
+add_subdirectory(names)
 # =============================================================
 
 #指定安装时使用的路径前缀

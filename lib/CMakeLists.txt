@@ -23,6 +23,12 @@ set(FILES_LIST
         "sockfd_to_family.cc"
         "dg_cli.cc"
         "dg_echo.cc"
+        "host_serv.cc"
+        "tcp_connect.cc"
+        "tcp_listen.cc"
+        "udp_client.cc"
+        "udp_connect.cc"
+        "udp_server.cc"
 )
 
 # 自动包含当前目录代码文件

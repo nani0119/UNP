@@ -23,6 +23,7 @@ extern "C" {
 #include <signal.h>
 #include <sys/wait.h>
 #include <sys/resource.h>
+#include <netdb.h>
 }
 #define	FILE_MODE	(S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)
 					/* default file access permissions for new files */
@@ -130,6 +131,18 @@ namespace  unp
    void dg_cli(FILE *fp, int sockfd, const SA *pservaddr, socklen_t servlen);
    //dg_echo.cc
    void dg_echo(int sockfd, struct sockaddr* pcliaddr, socklen_t clilen);
+   //host_serv.cc
+   struct addrinfo* Host_serv(const char* host, const char* serv, int family, int socktype);
+   //tcp_connect.cc
+   int Tcp_connect(const char *host, const char *serv);
+   //tcp_listen.cc
+   int Tcp_listen(const char *host, const char *serv, socklen_t *addrlenp);
+   //udp_client.cc
+   int Udp_client(const char *host, const char *serv, SA **saptr, socklen_t *lenptr);
+   //udp_connect.cc
+   int Udp_connect(const char *host, const char *serv);
+   //udp_server.cc
+   int Udp_server(const char *host, const char *serv, socklen_t *addrlenp);
 }
 
 #endif
