@@ -47,7 +47,7 @@ namespace unp
                     }
                     else
                     {
-                        err_quit("str_cli:server terninated prematurelu");
+                        err_quit("str_cli:server terninated");
                     }
 
                 }
