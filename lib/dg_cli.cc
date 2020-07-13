@@ -13,10 +13,21 @@ namespace unp
         while (Fgets(sendline, MAXLINE, fp) != NULL)
         {
 
-            Sendto(sockfd, sendline, strlen(sendline), 0, pservaddr, servlen);
+            if(Sendto(sockfd, sendline, strlen(sendline), 0, pservaddr, servlen) < 0)
+            {
+                err_quit("exit");
+            }
             len = servlen;
             n = Recvfrom(sockfd, recvline, MAXLINE, 0, preply_addr, &len);
-            if(len != servlen || memcmp(pservaddr, preply_addr, len) != 0)
+            if(preply_addr->sa_family == AF_LOCAL)
+            {
+                if(memcmp(pservaddr, preply_addr, len) != 0)
+                {
+                    printf("replay from %s (ignored)\n", Sock_ntop(preply_addr, len));
+                    continue;
+                }
+            }
+            else if(len != servlen || memcmp(pservaddr, preply_addr, len) != 0)
             {
                 printf("replay from %s (ignored)\n", Sock_ntop(preply_addr, len));
                 continue;
