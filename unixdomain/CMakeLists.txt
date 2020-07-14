@@ -10,6 +10,8 @@ link_directories(${PROJECT_BINARY_DIR}/install/lib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(${PROJECT_BINARY_DIR}/install/include)
 
+add_subdirectory(mycat)
+
 set(EXTRA_LIBS  ${EXTRA_LIBS}  "libunp.a")
 # ======================================================
 # 自动包含当前目录代码文件

@@ -82,6 +82,7 @@ namespace  unp
     ssize_t Send(int fd, const void *ptr, size_t nbytes, int flags);
     ssize_t Sendto(int fd, const void *ptr, size_t nbytes, int flags, const struct sockaddr *sa, socklen_t salen);
     ssize_t Sendmsg(int fd, const struct msghdr *msg, int flags);
+    int     Socketpair(int family, int type, int protocol, int *fd);
 
     // wrapunix.cc
     int     Close(int fd);
@@ -143,6 +144,10 @@ namespace  unp
    int Udp_connect(const char *host, const char *serv);
    //udp_server.cc
    int Udp_server(const char *host, const char *serv, socklen_t *addrlenp);
+   //read_fd.cc
+   ssize_t Read_fd(int fd, void *ptr, size_t nbytes, int *recvfd);
+   //write_fd.cc
+   ssize_t Write_fd(int fd, void *ptr, size_t nbytes, int sendfd);
 }
 
 #endif

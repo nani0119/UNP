@@ -202,4 +202,15 @@ again:
         return n;
     }
 
+    int Socketpair(int family, int type, int protocol, int *fd)
+    {
+        int n;
+
+        if ((n = socketpair(family, type, protocol, fd)) < 0)
+        {
+            err_msg("socketpair error");
+        }
+        return n;
+    }
+
 } // namespace unp
