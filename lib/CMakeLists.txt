@@ -31,6 +31,7 @@ set(FILES_LIST
         "udp_server.cc"
         "read_fd.cc"
         "write_fd.cc"
+        "connect_nonb.cc"
 )
 
 # 自动包含当前目录代码文件

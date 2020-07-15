@@ -105,7 +105,8 @@ namespace  unp
     pid_t   Wait(int *iptr);
     pid_t   Waitpid(pid_t pid, int *iptr, int options);
     ssize_t Write(int fd, void *ptr, size_t nbytes);
-
+    int     Fcntl(int fd, int cmd, int arg);
+    int     Dup2(int fd1, int fd2);
 
     //writen.cc
     ssize_t Writen(int fd, void *ptr, size_t nbytes);

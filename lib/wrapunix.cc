@@ -193,4 +193,24 @@ namespace unp
         return n;
     }
 
+    int Fcntl(int fd, int cmd, int arg)
+    {
+        int n;
+
+        if ((n = fcntl(fd, cmd, arg)) == -1)
+        {
+            err_msg("fcntl error");
+        }
+        return (n);
+    }
+    int Dup2(int fd1, int fd2)
+    {
+        int ret;
+        if ((ret = dup2(fd1, fd2)) == -1)
+        {
+            err_msg("dup2 error");
+        }
+        return ret;
+    }
+
 } // namespace unp
